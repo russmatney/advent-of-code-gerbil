@@ -1,0 +1,8 @@
+#+title: Advent of Code - Gerbil
+
+* resources
+- gerbil website: https://cons.io/
+- gerbil guide: https://cons.io/guide/
+
+* 2015
+** Day 1
