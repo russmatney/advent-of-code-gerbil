@@ -3,6 +3,8 @@
 * resources
 - gerbil website: https://cons.io/
 - gerbil guide: https://cons.io/guide/
+- gerbil github: https://github.com/mighty-gerbils/gerbil
+- great list of resources on the gerbil readme: https://github.com/mighty-gerbils/gerbil/blob/master/README.md#documentation
 
 * 2015
 ** Day 1
