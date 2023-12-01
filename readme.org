@@ -9,3 +9,8 @@
 - gerbil standard lib docs: https://cons.io/reference/std/
 * 2015
 ** [[file:src/2015/day01.ss][Day 1]]
+
+* Other AOCs
+- [[https://github.com/russmatney/advent-of-code][advent-of-code (clojure)]]
+- [[https://github.com/russmatney/advent-of-code-zig][advent-of-code-zig]]
+- [[https://github.com/russmatney/advent-of-godot][advent-of-code-godot]]
