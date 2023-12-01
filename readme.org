@@ -7,4 +7,4 @@
 - great list of resources on the gerbil readme: https://github.com/mighty-gerbils/gerbil/blob/master/README.md#documentation
 
 * 2015
-** Day 1
+** [[file:src/2015/day01.ss][Day 1]]

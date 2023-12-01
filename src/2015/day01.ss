@@ -1,7 +1,11 @@
 (export run)
-(import :std/iter)
-(import :std/sugar)
-(import :std/io)
+(import
+  :std/iter
+  :std/sugar
+  :std/io
+  :std/source
+  :std/misc/path
+  :std/misc/ports)
 
 (def (calc-final-floor input)
   ;; (displayln "calcing floor for path... " input)
@@ -25,17 +29,19 @@
         (displayln (if pass? "PASS" "FAIL") " case: " input " " expected " =?= " actual)))))
 
 (def (run . args)
-  (let* ((path "./day01_input.txt")
-         (reader (open-file-reader path))
-         (streader (open-string-reader reader))
-         (content "")
-         (chars (&StringReader-read-string streader content))
-         )
-    (displayln "streader " streader)
+  (let* ((content (this-source-content "day01_input.txt")))
     (displayln "content " content)
-    (displayln "chars " chars)
 
     (displayln "final floor: " (calc-final-floor "()()()())))"))))
 
 ;; (tests)
 (run)
+
+(displayln (this-source-file))
+(displayln (this-source-directory))
+
+(def $this-dir (this-source-directory))
+(def $content
+  (this-source-content "day01_input.txt"))
+
+(displayln $content)
