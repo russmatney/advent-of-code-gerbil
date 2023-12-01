@@ -2,16 +2,24 @@
 (import
   :std/iter
   :std/sugar
-  :std/io
-  :std/source
-  :std/misc/path
-  :std/misc/ports)
+  :std/source)
 
 (def (calc-final-floor input)
-  ;; (displayln "calcing floor for path... " input)
   (for/fold (floor 0) (next input)
-    ;; (displayln "next " next " floor " floor)
-    (+ floor (if ((is next) #\() 1 -1))))
+    (+ floor (match next
+               (#\( 1)
+               (#\) -1)
+               (else 0)))))
+
+(def (calc-first-underground-floor input)
+  (cdr
+   (for/fold (agg [0 . 0]) (next input)
+     (if (< (car agg) 0)
+       agg
+       (let ((floor (+ (car agg)
+                       (match next (#\( 1) (#\) -1) (else 0))))
+             (count (+ (cdr agg) 1)))
+         [floor . count])))))
 
 (def (tests)
   (let ((cases [["(())" . 0]
@@ -24,24 +32,14 @@
                 ]))
     (displayln cases)
     (for ([input . expected] cases)
-      (let* ((actual (calc-final-floor input))
-             (pass? (= actual expected)))
-        (displayln (if pass? "PASS" "FAIL") " case: " input " " expected " =?= " actual)))))
+      (let* ((final-floor (calc-final-floor input))
+             (pass? (= final-floor expected)))
+        (displayln (if pass? "PASS" "FAIL") " case: " input " " expected " =?= " final-floor)))))
 
 (def (run . args)
-  (let* ((content (this-source-content "day01_input.txt")))
-    (displayln "content " content)
+  (let* ((content (bytes->string (this-source-content "day01_input.txt"))))
+    (displayln "final floor: " (calc-final-floor content))
+    (displayln "first underground floor: " (calc-first-underground-floor content))))
 
-    (displayln "final floor: " (calc-final-floor "()()()())))"))))
-
-;; (tests)
+(tests)
 (run)
-
-(displayln (this-source-file))
-(displayln (this-source-directory))
-
-(def $this-dir (this-source-directory))
-(def $content
-  (this-source-content "day01_input.txt"))
-
-(displayln $content)

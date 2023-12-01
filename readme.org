@@ -5,6 +5,7 @@
 - gerbil guide: https://cons.io/guide/
 - gerbil github: https://github.com/mighty-gerbils/gerbil
 - great list of resources on the gerbil readme: https://github.com/mighty-gerbils/gerbil/blob/master/README.md#documentation
-
+- gerbil runtime builtins (strings, lists, hash tables, etc): https://gerbil.scheme.org/reference/gerbil/runtime/
+- gerbil standard lib docs: https://cons.io/reference/std/
 * 2015
 ** [[file:src/2015/day01.ss][Day 1]]
